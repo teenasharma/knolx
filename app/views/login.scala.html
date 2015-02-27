@@ -1,0 +1,171 @@
+@* login Template File *@ 
+@(loginForm:Form[(String, String)])(implicit flash: play.api.mvc.Flash) 
+@import helper._ 
+@import helper.twitterBootstrap._ 
+@main("index"){
+
+<div class="row" style="background-color: white">
+	<div class="col-md-8 col-xs-12">
+		<h2 style="color: #4D4D4D;">Knoldus Software LLP</h2>
+		<p style="color: #4D4D4D;" align="justify">
+			Knoldus is a team of Passionate Technologists, focused on staying at
+			the edge of the curve. We love to build Scalable, Performant,
+			Concurrent systems with Functional Programming to meet the needs of
+			the business. Our big data solutions have won accolades in domains
+			like Social media analytics, Finance, Healthcare,Gaming, Shipping and
+			Media. Our proactive thinking, led by the mission of Authority
+			enables us to deliver Business Innovation & Acceleration to help you
+			succeed.
+			</marquee>
+		</p>
+		<div id="carousel-example-generic" class="carousel slide"
+			data-ride="carousel" style="margin-top: 50px;">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#carousel-example-generic" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+				<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<img src="@routes.Assets.at("images/img.jpg")" alt="img1"
+						style="height: 200px; width: 1000px">
+					<div class="carousel-caption">First image</div>
+				</div>
+				<div class="item">
+					<img src="@routes.Assets.at("images/pic1.jpg")" alt="img2"
+						style="height: 200px; width: 1000px">
+					<div class="carousel-caption">Second image</div>
+				</div>
+				<div class="item">
+					<img src="@routes.Assets.at("images/pic.jpg")" alt="img3"
+						style="height: 200px; width: 1000px">
+					<div class="carousel-caption">Third image</div>
+				</div>
+
+			</div>
+
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="prev"> <span
+				class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a> <a class="right carousel-control" href="#carousel-example-generic"
+				role="button" data-slide="next"> <span
+				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
+
+	</div>
+	<div class="col-md-4 col-xs-12">
+		<h2 style="color: #4D4D4D;">Login</h2>
+		@if(flash.get("error").isDefined){
+		<div class="alert alert-info alert-dismissible" role="alert"
+			style="width: 60%">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>@flash.get("error")!</strong>
+		</div>
+		}
+		<p>Please provide your credentials.</p>
+
+		@helper.form(routes.Application.authenticate){
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Sign In</div>
+				<div
+					style="float: right; font-size: 80%; position: relative; top: -10px">
+					<a href="#">Forgot password?</a>
+				</div>
+			</div>
+
+			<div style="padding-top: 30px" class="panel-body">
+
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
+
+				<form id="loginform" class="form-horizontal" role="form">
+
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input type="email"
+							name="email" placeholder="Email" id="email" class="form-control"
+							value="@loginForm("email").value">
+					</div>
+
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-lock"></i></span> <input type="password"
+							name="password" id="password" placeholder="Password"
+							class="form-control">
+					</div>
+					<div style="margin-top: 10px" class="form-group">
+						<!-- Button -->
+
+						<div class="col-sm-12 controls">
+							<button type="submit" id="loginbutton"
+								class="btn btn-primary btn-sm">Login</button>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-12 control">
+							<div
+								style="border-top: 1px solid #888; padding-top: 15px; font-size: 85%">
+								Don't have an account! <a href="@routes.Application.employee()"
+									onClick="$('#loginbox').hide(); $('#signupbox').show()">
+									Sign Up Here </a>
+							</div>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			}
+
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4 col-xs-12" style="margin-top: 5px">
+		<div class="panel panel-default">
+			<div class="panel-heading">SCALA</div>
+			<div class="panel-body">
+				<p>It covers Scala from basic syntax and language constructs,
+					through its distinctive object oriented characteristics and on to f
+					unctional programming styles and pattern matching as applied to
+					Scala's extensive collections framework.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-xs-12" style="margin-top: 5px">
+		<div class="panel panel-default">
+			<div class="panel-heading">AKKA</div>
+			<div class="panel-body">
+				<p>It helps developers to start building powerful concurrent
+					applications with the Akka and Scala.Upon completion you learn how
+					to apply the tools and services provided by Akka to build high
+					performance, fault tolerant systems that scale.</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 col-xs-12" style="margin-top: 5px">
+		<div class="panel panel-default">
+			<div class="panel-heading">PLAY</div>
+			<div class="panel-body">
+				<p>The 2 day Core Play framework course is aimed at developers
+					who want to build their web applications with Play and Scala.The
+					course has a practical focus, mixing presentation with in depth
+					hands on labs and exercises.</p>
+			</div>
+		</div>
+	</div>
+</div>
+}

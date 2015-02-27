@@ -1,0 +1,156 @@
+@* logout Template File *@
+@(user:User)(implicit flash: play.api.mvc.Flash)
+@import helper._
+
+@main("profile") {
+<div class="row">
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+	<div class="col-md-3 col-xs-12">
+		<ul class="list-unstyled">
+			<li class="nav-header"><a href="#" data-toggle="collapse"
+				data-target="#userMenu">
+					<h5>
+						Settings <i class="glyphicon glyphicon-chevron-down"></i>
+					</h5>
+			</a>
+				<ul class="list-unstyled collapse in" id="userMenu">
+					<li class="active"><a href="#"><i
+							class="glyphicon glyphicon-home"></i> Home</a></li>
+					<li><a href="@routes.Application.editUser(user.id)"><i
+							class="glyphicon glyphicon-edit"></i> Update Profile</a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-cog"></i>
+							Options</a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-comment"></i>
+							Shoutbox</a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-user"></i>
+							Staff List</a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-flag"></i>
+							Transactions</a></li>
+					<li><a href="#"><i
+							class="glyphicon glyphicon-exclamation-sign"></i> Rules</a></li>
+					<li><a href="@routes.Application.login()"><i
+							class="glyphicon glyphicon-off"></i> Logout</a></li>
+				</ul></li>
+			<li class="nav-header"><a href="#" data-toggle="collapse"
+				data-target="#menu2">
+					<h5>
+						Reports <i class="glyphicon glyphicon-chevron-right"></i>
+					</h5>
+			</a>
+
+				<ul class="list-unstyled collapse" id="menu2">
+					<li><a href="#">Information &amp; Stats</a></li>
+					<li><a href="#">Views</a></li>
+					<li><a href="#">Requests</a></li>
+					<li><a href="#">Timetable</a></li>
+					<li><a href="#">Alerts</a></li>
+				</ul></li>
+			<li class="nav-header"><a href="#" data-toggle="collapse"
+				data-target="#menu3">
+					<h5>
+						Social Media <i class="glyphicon glyphicon-chevron-right"></i>
+					</h5>
+			</a>
+
+				<ul class="list-unstyled collapse" id="menu3">
+					<li><a href="#"><i class="glyphicon glyphicon-circle"></i>
+							Facebook</a></li>
+					<li><a href="#"><i class="glyphicon glyphicon-circle"></i>
+							Twitter</a></li>
+				</ul></li>
+		</ul>
+		<hr>
+	</div>
+	<div class="col-md-5 col-xs-12">
+
+		<h3>Welcome To Knolx Session @user.name</h3>
+
+		<hr></hr>
+		<h4>User Profile</h4>
+		@if(flash.get("success").isDefined){
+		<div class="alert alert-info alert-dismissible" role="alert"
+			style="width: 60%">
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>@flash.get("success")!</strong>
+		</div>
+		}
+
+		<table class="table table-striped table-responsive table-bordered">
+			<thead>
+				<tr>
+					<!-- adding sort on click -->
+					<th>Id</th>
+					<td>@user.id</a></td>
+				</tr>
+				<tr>
+					<th>Name</th>
+					<td>@user.name</td>
+				</tr>
+				<tr>
+					<th>Address</th>
+					<td>@user.address</td>
+				</tr>
+				<tr>
+					<th>Company</th>
+					<td>@user.company</td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td>@user.email</td>
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td>@user.phone</td>
+				</tr>
+				<tr>
+					<th>User Type</th>
+					<td>@user.userType</td>
+				</tr>
+				<tr>
+					<th>Created Date</th>
+					<td>@user.created</td>
+				</tr>
+				<tr>
+					<th>Update Date</th>
+					<td>@user.updateDate</td>
+
+
+				</tr>
+				<!-- Rendering Employee Records data by filtering with given fields -->
+
+			</thead>
+		</table>
+	</div>
+	<div class="col-md-4 col-xs-12">
+
+		<div class="panel-heading" style="margin-top: 6px;">
+			<h3 class="panel-title" style="color: Black">
+				<i class="glyphicon glyphicon-th-list"></i> Notifications
+			</h3>
+		</div>
+		<div class="panel-body " style="margin-top: 0px;" align="justify">
+			<marquee behavior="scroll" direction="up"
+				onmouseover="this.setAttribute('Scrollamount',3,0);"
+				onmouseout="this.setAttribue('Scrollamount',15,0)">
+				<a href="#" style="color: black">Knoldus big data cube solution
+					now running on 219 Amazon servers in production.</a> <br> <br>
+				<a href="#" style="color: black">Knoldus' work on Scala.js
+					appreciated by the community and made a part of Scala.js Know More
+					About the Scala.js</a> <br> <br> <a href="#"
+					style="color: black">Knoldus introduces 2 days spark workshop.
+					Know More About the Spark Training</a> <br> <br> <a href="#"
+					style="color: black">Knoldus introduces 2 day Cassandra
+					workshop. Know More About the Cassandra Training</a> <br> <br>
+				<a href="#" style="color: black">Knoldus' skin in the game
+					product gets covered in prime time news.</a> <br> <br>
+			</marquee>
+		</div>
+
+	</div>
+
+
+</div>
+}

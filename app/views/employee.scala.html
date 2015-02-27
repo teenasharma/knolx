@@ -1,0 +1,127 @@
+
+@* employee Template File *@ 
+@(param:String)(implicit flash: play.api.mvc.Flash)
+
+@main("index"){
+<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+<div class="col-md-12 col-xs-12" style="margin-top: 10px;">
+	@if(flash.get("success").isDefined){
+	<div class="alert alert-info alert-dismissible" role="alert"
+		style="width: 60%">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<strong>@flash.get("success")!</strong>
+	</div>
+	} @if(flash.get("error").isDefined){
+	<div class="alert alert-info alert-dismissible" role="alert"
+		style="width: 60%">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<strong>@flash.get("error")!</strong>
+	</div>
+	} @if(flash.get("errorBlank").isDefined){
+	<div class="alert alert-info alert-dismissible" role="alert"
+		style="width: 60%">
+		<button type="button" class="close" data-dismiss="alert"
+			aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+		<strong>@flash.get("errorBlank")!</strong>
+	</div>
+	}
+	<h2>Registration</h2>
+
+</div>
+
+<div class="col-md-6 col-xs-12 " style="margin-top: 10px;">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<form method="Post" action="@routes.Application.userFormSubmit()">
+				<fieldset>
+					<div class="control-group">
+						<!-- User name -->
+						<label class="control-label" for="name">User Name</label>
+						<div class="controls">
+							<input type="text" id="name" name="name" placeholder=""
+								class="input-xlarge">
+						</div>
+					</div>
+					<div class="control-group">
+						<!-- User name -->
+						<label class="control-label" for="address">Address</label>
+						<div class="controls">
+							<input type="text" id="address" name="address" placeholder=""
+								class="input-xlarge">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<!-- user age -->
+						<label class="control-label" for="email">Email</label>
+						<div class="controls">
+							<input type="text" id="email" name="email" placeholder=""
+								class="input-xlarge">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<!-- user address-->
+						<label class="control-label" for="company">Company</label>
+						<div class="controls">
+							<input type="text" id="company" name="company"
+								class="input-xlarge">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<!-- user company -->
+						<label class="control-label" for="phone">Phone Number</label>
+						<div class="controls">
+							<input type="text" id="phone" name="phone" class="input-xlarge">
+						</div>
+					</div>
+					<div class="control-group">
+						<!-- user id -->
+						<div class="controls">
+							<input type="hidden" name="userType" id="userType" value="0" />
+						</div>
+					</div>
+
+					<div class="control-group">
+						<!-- user company -->
+						<label class="control-label" for="password">Password</label>
+						<div class="controls">
+							<input type="password" id="password" name="password"
+								class="input-xlarge">
+						</div>
+					</div>
+
+
+
+					<div class="control-group">
+						<!-- user id -->
+						<div class="controls">
+							<input type="hidden" name="id" id="id" value="0" />
+						</div>
+					</div>
+					<br>
+					<div class="control-group">
+						<!-- Button -->
+						<div class="controls">
+							<button class="btn btn-primary">Submit</button>
+							<a href="@routes.Application.login()"
+								class="btn btn-primary btn-md">Login</a>
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+
+}

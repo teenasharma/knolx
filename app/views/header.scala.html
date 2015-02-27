@@ -1,0 +1,26 @@
+@* header Template File *@ 
+@(param:String)
+
+<div class="row first" style="background-color: #AFC5FC;">
+	<!-- start first row -->
+	<div class="col-xs-12 col-md-9" style="background-color: #AFC5FC">
+		<h1 Style="color: #403737;">
+			<span style="color: #4D4D4D; font-weight: bold; font-style: italic;">
+				Knolx</span> Project
+		</h1>
+
+
+		</ul>
+	</div>
+
+	<div class="col-xs-12 col-md-3" style="background-color: #AFC5FC">
+		<ul class="nav navbar-nav navbar-right">
+			@if(param != "index"){
+			<li><a href="@routes.Application.login()"><span
+					class="glyphicon glyphicon glyphicon-lock"></span>Logout</a></li> } else{
+			<li><a href="@routes.Application.employee()"><span
+					class="glyphicon glyphicon glyphicon-education"></span> Register</a></li> }
+		
+	</div>
+</div>
+<!-- end first row -->
